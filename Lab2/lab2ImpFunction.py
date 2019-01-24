@@ -115,7 +115,7 @@ def holdoutCVKernRLS(x, y, perc, nrip, kernel, lam_list, kerpar_list):
     lam_list = np.array([5,2,1,0.7,0.5,0.3,0.2,0.1, 0.05, 0.02, 0.01, 0.005, 0.002, 0.001, 0.0005, 0.0002, 0.0001,0.00001,0.000001])
     kerpar_list = np.array([10,7,5,4,3,2.5,2.0,1.5,1.0,0.7,0.5,0.3,0.2,0.1, 0.05, 0.03,0.02, 0.01])
     xtr, ytr = MixGauss.mixgauss([[0;0],[1;1]],[0.5,0.25],100);
-    l, s, Vm, Vs, Tm, Ts = holdoutCVKernRLS.holdoutcvkernrls(xtr, ytr,'gaussian', 0.5, 5, lam_list, kerpar_list);
+    l, s, Vm, Vs, Tm, Ts = holdoutCVKernRLS(xtr, ytr, 50, 5,'gaussian', lam_list, kerpar_list);
     plt.plot(lam_list, vm, 'b')
     plt.plot(lam_list, tm, 'r')
     plt.show()
